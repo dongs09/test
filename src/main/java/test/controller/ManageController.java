@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import test.dto.Account;
+import test.dto.Custom;
 import test.service.face.ManageService;
 
 @Controller
@@ -21,10 +23,19 @@ public class ManageController {
 		
 	}
 	@RequestMapping(value="/manage/customAdd", method=RequestMethod.POST)
-	public String add() {
+	public String add(Account account, Custom custom) {
+		
+		manageService.addCustom(account, custom);
 		
 		return "redirect:/manage/custom";
 	}
+	
+	@RequestMapping(value="/manage/popup", method=RequestMethod.GET)
+	public void popup() {
+		
+		
+	}
+	
 	
 	
 }//class end

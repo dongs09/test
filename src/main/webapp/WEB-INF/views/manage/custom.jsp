@@ -45,9 +45,6 @@
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
                 
-// 				jQuery("#post_num").val(data.post_num);
-// 				jQuery("#addr1").val(data.addr1);
-// 				jQuery("#addr2").val(data.addr2);
 
                 // 각 주소의 노출 규칙에 따라 주소를 조합한다.
                 // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
@@ -95,6 +92,11 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	
+	//popup 닫기
+	$('#closePop').click(function(){
+		$('#pop').hide();
+	})
+	
 	//국가 검색 모달에서, 선택 완료 버튼 눌렀을때
 	$('#selectBtn').click(function(){
 		$('#country_eng').html('');
@@ -120,9 +122,25 @@ $(document).ready(function() {
 	});
 });
 </script>
+<style type="text/css">
+#pop{
+	width:auto; height:560px; background:#3d3x3d; color:#0B243B;
+	position:absolute; top:10px; left:100px; text-align:center;
+	border:2px solid #81BEF7;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
+<div id="pop">
+	<div style="height:500px;">
+		<img src="/resources/img/ru.png">
+<!-- 		<img src="/resources/img/ru2.png"> -->
+	</div>
+	<div style="width:160px; padding:29px; margin:auto;">
+		<button id="closePop" style="width:100px;">close</button>
+	</div>
+</div>
 <div id="custom">
 	<form action="/manage/custom" method="get">
 		<fieldset>
